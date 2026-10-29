@@ -1,0 +1,423 @@
+body {
+    background: radial-gradient(#e42127, #971f26), black;
+    background-position-x: center;
+    background-position-y: top;
+    height: 100vh;
+    overflow-y: none;
+    overflow-x: none;
+}
+
+.modal-header {
+    background-image: url("../assets/BAR-batik.png");
+    background-size: cover;
+}
+
+.btn-close {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: 0.25em 0.25em;
+    color: #ebebeb;
+    border: 0;
+    border-radius: 0.25rem;
+    opacity: 0.5;
+    background-color: #e42127;
+}
+
+.container {
+    z-index: 18;
+}
+
+section#Main .footer-batik {
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 300px;
+    background: url(../assets/batik1.svg) no-repeat;
+    background-size: cover;
+}
+
+section#Main div.bg-cover {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    z-index: 10;
+}
+
+section#Main div.bg-cover .bg {
+    height: 95vh;
+    width: auto;
+}
+
+.btn-main-select {
+    color: #000000;
+    border-color: #f3f3f3;
+    background-color: #f3f3f3;
+    font-size: 18px;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 200px;
+}
+.btn-main-select-small {
+    color: #000000;
+    border-color: #f3f3f3;
+    background-color: #f3f3f3;
+    font-size: 18px;
+    border-radius: 12px;
+    padding: 37.5px 24px;
+    max-width: 200px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1490px) {
+    section#Main div.bg-cover img.logo-hero {
+        width: 180px;
+        height: auto;
+    }
+
+    section#Main div.bg-cover .bg {
+        height: 80vh;
+        width: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    section#Main div.bg-cover .bg {
+        margin-top: 14vh;
+        height: 80vh;
+        width: auto;
+    }
+
+    section#Main .footer-batik {
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+        width: 100%;
+        height: 280px;
+        background: url(../assets/batik.png) no-repeat;
+        background-size: cover;
+    }
+
+    section#Main div.bg-cover img.logo-hero {
+        width: 120px;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    section#Main div.bg-cover .bg {
+        margin-top: 24vh;
+        height: 58vh;
+    }
+    section#Main .footer-batik {
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+        width: 100%;
+        height: 120px;
+        background: url(../assets/batik.png) no-repeat;
+        background-size: cover;
+    }
+
+    section#Main div.bg-cover img.logo-hero {
+        width: 240px;
+        height: auto;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 576px) {
+    section#Main div.bg-cover .bg {
+        display: none;
+    }
+}
+
+/*Stash*/
+
+/* Small devices (tablets, 768px and up) */
+
+.fixed-batik {
+    background-image: url("/assets/batik.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: top;
+    height: 27vh;
+    /* margin-top: -24px; */
+}
+
+.background-modal {
+    background-image: url("/assets/bg-modal.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: top;
+
+    height: 70vh; /* Adjust the height as needed */
+    padding-top: 100px;
+}
+
+.custom-button {
+    width: 260px !important; /* Set the width of your buttons */
+    height: 375px !important; /* Set the height of your buttons */
+    border-radius: 12px !important;
+}
+
+.hero-text {
+    font-size: 25px;
+}
+
+.action-separator {
+    margin-right: 4rem !important;
+}
+
+.logo-center {
+    width: 300px;
+}
+.main-btn-section {
+    margin-top: calc(10vh + 100px);
+}
+
+.modal-backdrop {
+    z-index: 1010;
+}
+
+.accordion-button {
+    background-color: #fff; /* Replace with your color */
+    color: #000000; /* Replace with your text color */
+}
+
+.accordion-button:focus {
+    background-color: #ee2222; /* Replace with your color */
+    color: #fff;
+    /* Replace with your text color */
+}
+
+.accordion-body {
+    background-color: #ffffff; /* Replace with your color */
+    color: #000000; /* Replace with your text color */
+}
+
+@media only screen and (max-width: 500px) {
+    .background-modal {
+        height: 50vh;
+        padding-top: 35px;
+    }
+
+    .bg-modal-admin {
+        height: 90vh;
+        padding-top: 35px;
+    }
+    .logo-center {
+        opacity: 100% !important;
+    }
+
+    .custom-button {
+        width: 100px !important; /* Set the width of your buttons */
+        height: 200px !important; /* Set the height of your buttons */
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .custom-button {
+        width: 80px !important; /* Set the width of your buttons */
+        height: 120px !important; /* Set the height of your buttons */
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    #eprese {
+        display: grid !important;
+    }
+}
+
+.loading-screen#loading-message {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    z-index: 200;
+}
+.loading-screen#loading-message .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.hide-important {
+    display: none !important;
+}
+
+.button-group-cs {
+    display: flex;
+    gap: 0.5rem;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.button-buble {
+    background: #d52127;
+    border-radius: 100px;
+    border-width: 0px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
+    cursor: pointer;
+    height: 64px;
+    padding: 8px;
+    user-select: none;
+    width: 64px;
+    z-index: 2147483000 !important;
+}
+
+.button-buble {
+    transform-origin: center;
+    will-change: transform, opacity;
+    transform: translateX(0) scale(1) rotate(0deg);
+    transition: transform 300ms ease, opacity 100ms ease,
+        visibility 0ms linear 0ms, bottom 0ms linear 0ms;
+}
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+.button-buble {
+    bottom: 24px;
+    display: flex;
+    height: 48px !important;
+    width: auto !important;
+    align-items: center;
+}
+
+.button-buble {
+    right: 20px;
+}
+
+.button-buble {
+    transform: translateX(0px);
+    transition: transform 300ms ease, opacity 100ms ease,
+        visibility 0ms linear 0ms, bottom 0ms linear 0ms;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+.button-buble:hover {
+    background: #d52127;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+.button-buble svg {
+    height: 35px;
+    margin: auto;
+    width: 35px;
+}
+
+/* make css swiper cant scroll */
+.swiper-container {
+    overflow: hidden;
+}
+
+.custom-modal-pos {
+    position: fixed;
+    z-index: 1000;
+    bottom: -146px;
+    right: 10px;
+    width: 320px !important; /* Full width */
+    height: 400px !important; /* Full height */
+}
+
+/* Modal Content */
+#chatModal .modal-content-customs,
+#chat-modal .modal-content-customs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    margin: auto;
+    padding: 20px 16px;
+    border-radius: 16px !important;
+    width: 80% !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        right: -300px;
+        opacity: 0;
+    }
+    to {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        right: -300px;
+        opacity: 0;
+    }
+    to {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+.btn-cs {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #e0e0e0;
+    border-radius: 20px;
+    width: 80%;
+}
+
+.btn-cs:hover {
+    color: #fff;
+    background-color: #c41218;
+    border-color: #c41218;
+}
+
+#chatBtn svg {
+    transition: opacity 0.3s ease;
+}
+
+.chatwoot-widget--launcher {
+    display: none !important;
+}
+
+.woot-widget-bubble {
+    display: none !important;
+}
+
+.responsive-iframe {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}

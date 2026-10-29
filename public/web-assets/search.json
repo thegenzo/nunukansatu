@@ -1,0 +1,490 @@
+{
+  "results": {
+    "layanan_publik": {
+      "label": "Layanan Publik",
+      "count": 13,
+      "icon": "bi-info-circle",
+      "service_page": "publik",
+      "items": [
+        {
+          "id": "publik_1",
+          "title": "SILAPDAT",
+          "category": "Layanan Pengaduan",
+          "type": "publik",
+          "link": "https://satpolpp.nunukankab.go.id/",
+          "keywords": ["pengaduan", "laporan", "satuan pol pp", "pelanggaran", "aduan", "komplain", "satpolpp", "polisi pamong praja", "layanan pengaduan", "notifikasi pelanggaran", "unit tilang", "penegakan peraturan", "tilang elektronik", "pelanggaran lalu lintas", "parkir liar", "ketertiban", "lingkungan", "tarif denda", "segel", "barang sitaan"]
+        },
+        {
+          "id": "publik_2",
+          "title": "LAPOR",
+          "category": "Layanan Pengaduan",
+          "type": "publik",
+          "link": "https://lapor.go.id/",
+          "keywords": ["pengaduan", "laporan", "aspirasi", "masalah", "keluhan", "aduan", "portal aspirasi", "call center 14041", "feedback", "masukan", "saran", "kritik", "kekerasan", "darurat", "gawat darurat", "whistleblower", "sistem pelaporan", "keberatan", "pengaduan masyarakat", "layanan konsultasi", "konsultasi gratis", "mediasi", "penyelesaian sengketa", "perlindungan pelapor"]
+        },
+        {
+          "id": "publik_3",
+          "title": "JDIH",
+          "category": "Layanan Hukum",
+          "type": "publik",
+          "link": "https://jdih.nunukankab.go.id/",
+          "keywords": ["hukum", "peraturan", "undang-undang", "regulasi", "dokumentasi", "produk hukum", "perda", "peraturan daerah", "keputusan", "peraturan bupati", "legal", "legislasi", "pidana", "perdata", "pengumuman peraturan", "publikasi", "pencarian hukum", "jurnal hukum", "konstitusi", "pengkodean", "salinan", "notifikasi peraturan baru", "versioning peraturan"]
+        },
+        {
+          "id": "publik_4",
+          "title": "DAPODIK",
+          "category": "Layanan Sektor Pendidikan",
+          "type": "publik",
+          "link": "https://dapo.kemendikdasmen.go.id/",
+          "keywords": ["pendidikan", "sekolah", "siswa", "guru", "data pendidik", "akademik", "pembelajaran", "peserta didik", "sekolah dasar", "SMP", "SMA", "data pelajar", "mahasiswa", "kuliah", "kampus", "dosen", "pengajar", "tenaga didik", "data referensi", "input data", "verifikasi data", "rapor", "nilai siswa", "transkrip", "sertifikat", "prestasi akademik"]
+        },
+        {
+          "id": "publik_5",
+          "title": "GIS KAB. NUNUKAN",
+          "category": "Layanan Geospasial",
+          "type": "publik",
+          "link": "https://gis.nunukankab.go.id/",
+          "keywords": ["peta", "lokasi", "geospasial", "wilayah", "koordinat", "mapping", "sistem informasi geografis", "SIG", "pemetaan digital", "data spasial", "topografi", "geolokasi", "kontur", "pemetaan", "navigasi", "rute", "jarak", "luas wilayah", "batas administratif", "potensi sumber daya", "visualisasi peta", "layer peta", "overlay peta"]
+        },
+        {
+          "id": "publik_6",
+          "title": "PPID",
+          "category": "Layanan Informasi & Dokumentasi",
+          "type": "publik",
+          "link": "http://ppid.nunukankab.go.id/",
+          "keywords": ["informasi", "publik", "dokumentasi", "arsip", "data", "transparansi", "pejabat pengelola informasi", "akses informasi", "dokumen publik", "kebebasan informasi", "UU KIP", "keberatan informasi", "sengketa", "pengajuan informasi", "daftar publik", "informasi terbuka", "dokumen pemerintah", "klaim kerahasiaan", "permohonan akses"]
+        },
+        {
+          "id": "publik_7",
+          "title": "SIPAKRT",
+          "category": "Layanan Kependudukan",
+          "type": "publik",
+          "link": "https://sipakrt.nunukankab.go.id/",
+          "keywords": ["kependudukan", "penduduk", "data warga", "ktp", "kartu keluarga", "demografi", "administrasi kependudukan", "NIK", "KK", "akta kelahiran", "sensus", "kelurahan", "kecamatan", "kelurahan", "kabupaten", "kota", "surat keterangan", "permohonan KTP", "permohonan KK", "registrasi penduduk", "status perkawinan", "status domisili", "mutasi penduduk", "pencatatan sipil", "akta perkawinan"]
+        },
+        {
+          "id": "publik_8",
+          "title": "BTH",
+          "category": "Layanan Pajak Retribusi",
+          "type": "publik",
+          "link": "https://pendapatan-nnk.id/",
+          "keywords": ["pajak", "retribusi", "pendapatan", "bea", "cukai", "iuran", "pajak daerah", "tarif pajak", "pembayaran pajak", "PPh", "PPN", "pendapatan daerah", "SPT", "pembayaran online", "e-billing", "verifikasi pembayaran", "tanda bukti setoran", "daftar pajak", "penelitian pajak", "banding pajak", "keringanan pajak", "cicilan pajak"]
+        },
+        {
+          "id": "publik_9",
+          "title": "OSS",
+          "category": "Layanan Berusaha",
+          "type": "publik",
+          "link": "https://oss.go.id/",
+          "keywords": ["berusaha", "bisnis", "usaha", "izin usaha", "SIUP", "surat izin", "one single submission", "perizinan bisnis", "NIB", "pendaftaran usaha", "NPWP", "platform pendaftaran", "validasi NIB", "izin lingkungan", "izin operasional", "izin gangguan", "legalitas usaha", "sertifikat halal", "verifikasi usaha"]
+        },
+        {
+          "id": "publik_10",
+          "title": "SEMPADAN",
+          "category": "Layanan Berusaha",
+          "type": "publik",
+          "link": "https://sempadan.nunukankab.go.id/",
+          "keywords": ["berusaha", "bisnis", "usaha", "pendaftaran", "registrasi", "pelaku usaha", "UMKM", "koperasi", "usaha mikro", "perizinan daerah", "badan hukum", "profil UMKM", "data usaha", "mitra usaha", "klaster usaha", "pemberdayaan UMKM", "akses modal", "pelatihan usaha", "sertifikasi UMKM"]
+        },
+        {
+          "id": "publik_11",
+          "title": "SEHATI",
+          "category": "Layanan Kesehatan",
+          "type": "publik",
+          "link": "https://sehati.nunukankab.go.id/user-management/auth/login",
+          "keywords": ["kesehatan", "medis", "rumah sakit", "klinik", "dokter", "layanan kesehatan", "puskesmas", "diagnosis", "rekam medis", "telemedicine", "kesehatan penduduk", "pelayanan kesehatan", "registrasi pasien", "pendaftaran online", "konsultasi dokter", "resep elektronik", "vaksinasi", "pemeriksaan kesehatan", "data kesehatan", "riwayat medis"]
+        },
+        {
+          "id": "publik_12",
+          "title": "INAPROC",
+          "category": "Layanan Pengadaan Barang dan Jasa",
+          "type": "publik",
+          "link": "https://spse.inaproc.id/nunukankab",
+          "keywords": ["pengadaan", "barang", "jasa", "tender", "lelang", "procurement", "SPSE", "e-procurement", "pemenang tender", "kontrak barang", "belanja pemerintah", "pemenang lelang", "pengumumanlelang", "syarat lelang", "dokumen lelang", "kualifikasi vendor", "harga penawaran", "kontrak pekerjaan", "jadwal lelang", "hasil pelelangan"]
+        },
+        {
+          "id": "publik_13",
+          "title": "INLISLITE",
+          "category": "Layanan Perpustakaan",
+          "type": "publik",
+          "link": "http://layananperpus.nunukankab.go.id",
+          "keywords": ["perpustakaan", "buku", "perbukuan", "literasi", "membaca", "koleksi", "peminjaman buku", "katalog perpustakaan", "referensi", "jurnal", "edukasi", "pencarian buku", "daftar buku", "pengarang", "penerbit", "taman bacaan", "literasi digital", "e-book", "audiobook", "penelusuran literatur"]
+        }
+      ]
+    },
+    "layanan_adm": {
+      "label": "Layanan ADM Pemerintah",
+      "count": 11,
+      "icon": "bi-building",
+      "service_page": "adm",
+      "items": [
+        {
+          "id": "adm_1",
+          "title": "TNDD",
+          "category": "Layanan Naskah Dinas & Kearsipan",
+          "type": "adm",
+          "link": "https://tndd.nunukankab.go.id/login/auth_sso",
+          "keywords": ["naskah dinas", "kearsipan", "surat", "memo", "dokumentasi", "arsip", "dispatch", "pencatatan surat", "tanda dinas", "surat keluar", "surat resmi", "disposisi", "surat masuk elektronik", "surat keluar elektronik", "tracking surat", "surat dinas digital", "pemberkasan", "indeksasi", "pencarian dokumen", "manajemen surat digital"]
+        },
+        {
+          "id": "adm_2",
+          "title": "SRIKANDI",
+          "category": "Layanan Naskah Dinas & Kearsipan",
+          "type": "adm",
+          "link": "https://srikandi.arsip.go.id/",
+          "keywords": ["naskah dinas", "kearsipan", "surat masuk", "surat keluar", "arsip surat", "pencatatan", "manajemen surat", "filing", "retensi dokumen", "preservasi arsip", "manajemen dokumen", "retensi dokumen", "nilai guna dokumen", "pemusnahan dokumen", "akuisisi arsip", "daftar arsip", "preservasi digital", "klasifikasi dokumen"]
+        },
+        {
+          "id": "adm_3",
+          "title": "SIRAPEL",
+          "category": "Layanan Naskah Dinas & Kearsipan",
+          "type": "adm",
+          "link": "https://sirapel.nunukankab.go.id/sso",
+          "keywords": ["kearsipan", "rapat", "pertemuan", "berita acara", "dokumentasi rapat", "notulen", "hasil rapat", "acara pimpinan", "undangan rapat", "rapat pemerintah", "notulensi", "kuorum", "jadwal rapat", "peserta rapat", "ringkasan rapat", "keputusan rapat", "follow-up rapat", "notula elektronik", "publikasi notulen", "manajemen rapat"]
+        },
+        {
+          "id": "adm_4",
+          "title": "BKN",
+          "category": "Layanan Manajemen Kepegawaian",
+          "type": "adm",
+          "link": "https://asndigital.bkn.go.id/",
+          "keywords": ["kepegawaian", "pegawai", "pegawai negeri", "PNS", "SDM", "manajemen SDM", "ASN", "pegawai pemerintah", "tenaga kerja", "sumber daya manusia", "pangkat dan golongan", "mutasi pegawai", "promosi", "pensiun", "tunjangan pegawai", "cuti pegawai", "disiplin pegawai", "daftar pegawai", "nomor induk pegawai"]
+        },
+        {
+          "id": "adm_5",
+          "title": "eANJAB",
+          "category": "Layanan Manajemen Kepegawaian",
+          "type": "adm",
+          "link": "https://eanjab.nunukankab.go.id/sso.php",
+          "keywords": ["kepegawaian", "jabatan", "analisis jabatan", "organisasi", "struktur", "beban kerja", "uraian tugas", "posisi pekerjaan", "deskripsi jabatan", "surat keputusan", "surat kerja", "pemetaan jabatan", "deskripsi jabatan", "kompetensi jabatan", "formulir analisis", "persyaratan jabatan", "hirarki organisasi", "cluster jabatan", "requirement jabatan"]
+        },
+        {
+          "id": "adm_6",
+          "title": "SIPECEL",
+          "category": "Layanan Manajemen Perencanaan & Anggaran",
+          "type": "adm",
+          "link": "https://sipecel.nunukankab.go.id/",
+          "keywords": ["perencanaan", "anggaran", "APBD", "rencana kerja", "program kerja", "RKA", "RKPD", "perencanaan pembangunan", "target strategis", "kegiatan", "keuangan", "rencana strategis", "program tahunan", "dokumen perencanaan", "kegiatan strategis", "output tahunan", "indikator kinerja", "monitoring perencanaan", "revisi rencana"]
+        },
+        {
+          "id": "adm_7",
+          "title": "SIPD",
+          "category": "Layanan Manajemen Perencanaan & Anggaran",
+          "type": "adm",
+          "link": "https://sipd.kemendagri.go.id/",
+          "keywords": ["perencanaan", "anggaran", "APBD", "perencanaaan pembangunan", "anggaran daerah", "RKA-K/L", "alokasi anggaran", "belanja pembangunan", "investasi daerah", "keuangan", "rencana pembangunan jangka panjang", "RPJMD", "penetapan target", "dokumen RKA", "perubahan anggaran", "mekanisme anggaran", "pagu anggaran"]
+        },
+        {
+          "id": "adm_8",
+          "title": "FMIS",
+          "category": "Layanan Manajemen Keuangan",
+          "type": "adm",
+          "link": "https://nunukankab.fmis.id/2023/",
+          "keywords": ["keuangan", "kas", "pembayaran", "pelaporan keuangan", "akuntansi", "treasury", "financial management", "lampiran dokumen", "neraca", "laporan posisi", "laporan bulanan", "rekonsiliasi kas", "laporan arus kas", "verifikasi transaksi", "realisasi belanja", "komitmen anggaran", "revolving fund", "laporan keuangan konsolidasian"]
+        },
+        {
+          "id": "adm_9",
+          "title": "e-Presence",
+          "category": "Layanan Manajemen Kinerja",
+          "type": "adm",
+          "link": "https://ekinerja.nunukankab.go.id/presence/sso.php",
+          "keywords": ["presensi", "kehadiran", "absensi", "attendance", "cek masuk", "biometrik", "finger print", "log masuk", "jam kerja", "kehadiran pegawai", "laporan kehadiran", "rekapitulasi absensi", "jadwal kerja", "ketidakhadiran", "ijin cuti", "lembur", "validasi sidik jari", "pemetaan kehadiran", "rekap absensi bulanan"]
+        },
+        {
+          "id": "adm_10",
+          "title": "SIMANJA",
+          "category": "Layanan Manajemen Kinerja",
+          "type": "adm",
+          "link": "https://ekinerja.nunukankab.go.id/login/sso.php",
+          "keywords": ["kinerja", "penilaian", "evaluasi", "manajemen kinerja", "SKP", "sasaran kerja pegawai", "performance management", "penilaian kinerja", "hasil kerja", "target capaian", "target kinerja", "realisasi kinerja", "skoring kinerja", "reward performance", "analisis kinerja", "competency assessment", "pengembangan karir", "karir pegawai"]
+        },
+        {
+          "id": "adm_11",
+          "title": "SEPAKAT",
+          "category": "Layanan Manajemen Kinerja",
+          "type": "adm",
+          "link": "https://sepakat.nunukankab.go.id/auth_sso",
+          "keywords": ["kinerja", "penilaian", "target", "realisasi", "sasaran kerja", "capaian", "evaluasi kerja", "monitoring target", "pencapaian OPD", "target capaian", "dashboard kinerja", "capaian target", "serah terima target", "penetapan target OPD", "monitoring pencapaian", "evaluasi kinerja", "laporan kinerja OPD", "realisasi OPD"]
+        }
+      ]
+    },
+    "data_informasi": {
+      "label": "Data & Informasi",
+      "count": 30,
+      "icon": "bi-database",
+      "service_page": "data_informasi",
+      "items": [
+        {
+          "id": "data_1",
+          "title": "Profil Daerah",
+          "category": "Profil & Statistik",
+          "type": "data_informasi",
+          "menu": "profil",
+          "link": "/mall-data-informasi?menu=profil",
+          "keywords": ["profil", "profil daerah", "kabupaten nunukan", "statistik daerah", "demografi", "geografi", "kependudukan", "potensi daerah", "informasi wilayah", "data kabupaten", "sejarah daerah", "pemerintahan daerah", "OPD", "visi misi", "kondisi geografis", "potensi ekonomi", "demografi penduduk", "industri utama", "arah pengembangan", "visi pembangunan"]
+        },
+        {
+          "id": "data_2",
+          "title": "Satu Data",
+          "category": "Data & Statistik",
+          "type": "data_informasi",
+          "menu": "satudata",
+          "link": "/mall-data-informasi?menu=satudata",
+          "keywords": ["satu data", "data terpadu", "statistik", "data pemerintah", "dataset", "portal data", "open data", "data terbuka", "informasi statistik", "data pembangunan", "indikator", "database", "repositori", "data agregat", "analisis data", "publikasi data", "katalog data", "metadata", "lisensi data", "download data", "API data"]
+        },
+        {
+          "id": "data_2a",
+          "title": "Arsitektur SPBE",
+          "category": "SPBE & Teknologi Informasi",
+          "type": "data_informasi",
+          "menu": "arsitekturSPBE",
+          "link": "/mall-data-informasi?menu=arsitekturSPBE",
+          "keywords": ["arsitektur", "SPBE", "sistem prioritas pembangunan ekonomi", "teknologi informasi", "infrastruktur digital", "dashboard", "analytics", "data visualization", "visualisasi data", "laporan SPBE", "monitoring SPBE", "roadmap digital", "transformasi digital", "layanan digital", "infrastruktur TI", "cloud computing", "integrasi sistem", "e-government", "enterprise architecture"]
+        },
+        {
+          "id": "data_3",
+          "title": "Pengumuman",
+          "category": "Pengumuman & Informasi",
+          "type": "data_informasi",
+          "menu": "pengumuman",
+          "link": "/mall-data-informasi?menu=pengumuman",
+          "keywords": ["pengumuman", "pemberitahuan", "notifikasi", "info terbaru", "berita resmi", "siaran pers", "press release", "informasi resmi", "maklumat", "edaran", "surat edaran", "pengumuman resmi", "warta", "notifikasi terbaru", "publikasi resmi", "himbauan", "sosialisasi kebijakan", "perubahan kebijakan", "informasi penting", "warta pemerintah"]
+        },
+        {
+          "id": "data_4",
+          "title": "JDIH",
+          "category": "Hukum & Regulasi",
+          "type": "data_informasi",
+          "menu": "jdih",
+          "link": "/mall-data-informasi?menu=jdih",
+          "keywords": ["jaringan dokumentasi informasi hukum", "hukum", "peraturan", "undang-undang", "regulasi", "dokumentasi hukum", "produk hukum", "perda", "peraturan daerah", "keputusan bupati", "peraturan bupati", "legal", "legislasi", "pidana", "perdata", "pencarian produk hukum", "versi peraturan", "teks produk hukum", "sejarah perubahan", "substansi hukum"]
+        },
+        {
+          "id": "data_5",
+          "title": "Berita Daerah",
+          "category": "Berita & Informasi",
+          "type": "data_informasi",
+          "menu": "berita",
+          "link": "/mall-data-informasi?menu=berita",
+          "keywords": ["berita", "berita daerah", "berita terkini", "news", "kabar", "info terbaru", "warta", "liputan", "artikel berita", "kejadian terbaru", "informasi terkini", "berita kabupaten", "pers", "liputan acara", "press release", "feature", "kolom opini", "update terkini", "pengumuman berita", "arsip berita", "kategori berita"]
+        },
+        {
+          "id": "data_6",
+          "title": "Proyek Strategis Daerah",
+          "category": "Pembangunan & Proyek",
+          "type": "data_informasi",
+          "menu": "proyek-strategis",
+          "link": "/mall-data-informasi?menu=proyek-strategis",
+          "keywords": ["proyek", "proyek strategis", "pembangunan", "infrastruktur", "rencana pembangunan", "investasi daerah", "PSN", "program strategis", "mega proyek", "proyek prioritas", "pembangunan daerah", "progres proyek", "konstruksi", "timeline proyek", "progress report", "budget proyek", "kontraktor proyek", "pencapaian proyek", "kendala proyek", "serah terima proyek"]
+        },
+        {
+          "id": "data_7",
+          "title": "Transparansi Anggaran",
+          "category": "Keuangan & Anggaran",
+          "type": "data_informasi",
+          "menu": "transparansi-anggaran",
+          "link": "/mall-data-informasi?menu=transparansi-anggaran",
+          "keywords": ["anggaran", "transparansi", "APBD", "keuangan daerah", "belanja daerah", "pendapatan daerah", "laporan keuangan", "realisasi anggaran", "transparansi keuangan", "open budget", "akuntabilitas", "pertanggungjawaban anggaran", "fiskal", "rincian belanja", "belanja operasional", "belanja modal", "subsidi belanja", "alokasi per OPD", "perubahan anggaran", "penggunaan dana", "sisa anggaran"]
+        },
+        {
+          "id": "data_8",
+          "title": "Informasi ADM Pemerintah",
+          "category": "Administrasi Pemerintah",
+          "type": "data_informasi",
+          "menu": "informasi-adm",
+          "link": "/mall-data-informasi?menu=informasi-adm",
+          "keywords": ["administrasi", "pemerintahan", "tata kelola", "birokrasi", "OPD", "sakip", "LPPD", "laporan kinerja", "renstra", "renja", "program kerja", "kebijakan pemerintah", "informasi administrasi", "tata pemerintahan", "struktur organisasi", "tugas pokok", "fungsi OPD", "standar operasional", "LAKIP", "SPM", "kebijakan publik", "keputusan strategis"]
+        },
+        {
+          "id": "data_9",
+          "title": "Informasi Publik",
+          "category": "Informasi Publik",
+          "type": "data_informasi",
+          "menu": "informasi-publik",
+          "link": "/mall-data-informasi?menu=informasi-publik",
+          "keywords": ["informasi publik", "keterbukaan informasi", "KIP", "PPID", "informasi wajib berkala", "DIP", "daftar informasi publik", "sengketa informasi", "akses informasi", "UU KIP", "transparansi pemerintah", "hak informasi", "kebebasan informasi", "prosedur permohonan", "standar layanan", "kewajiban informasi", "informasi berkala", "jaminan keamanan data", "perlindungan privasi", "mediasi KIP"]
+        },
+        {
+          "id": "data_10",
+          "title": "Layanan Fase Kehidupan",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["fase kehidupan", "layanan fase kehidupan", "layanan kehidupan", "perjalanan hidup", "menemani hidup", "layanan publik", "nunukan satu", "kelahiran", "sekolah", "pendidikan", "pelatihan", "sertifikasi", "usaha", "hunian", "masyarakat", "kesehatan", "tanggap darurat", "sosial", "hukum", "hari tua", "lansia", "rekreasi", "kependudukan", "perizinan", "wisata", "bantuan sosial", "PKB"]
+        },
+        {
+          "id": "data_10a",
+          "title": "Kelahiran",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["kelahiran", "bayi", "akta kelahiran", "pendaftaran kelahiran", "dokumen kelahiran", "fase kehidupan"]
+        },
+        {
+          "id": "data_10b",
+          "title": "Sekolah",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["sekolah", "pendidikan anak", "PAUD", "SD", "SMP", "SMA", "sekolah dasar", "sekolah menengah", "fase kehidupan"]
+        },
+        {
+          "id": "data_10c",
+          "title": "Pelatihan & Sertifikasi",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["pelatihan", "sertifikasi", "kursus", "karier", "kompetensi", "fase kehidupan"]
+        },
+        {
+          "id": "data_10d",
+          "title": "Membangun Usaha",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["membangun usaha", "bisnis", "UMKM", "wirausaha", "usaha kecil", "fase kehidupan"]
+        },
+        {
+          "id": "data_10e",
+          "title": "Mendapatkan Hunian",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["hunian", "rumah", "perumahan", "KPR", "tempat tinggal", "fase kehidupan"]
+        },
+        {
+          "id": "data_10f",
+          "title": "Kegiatan Bermasyarakat",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["kegiatan masyarakat", "sosial", "volunteer", "kontribusi masyarakat", "fase kehidupan"]
+        },
+        {
+          "id": "data_10g",
+          "title": "Kesehatan",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["kesehatan", "rumah sakit", "faskes", "medis", "program kesehatan", "fase kehidupan"]
+        },
+        {
+          "id": "data_10h",
+          "title": "Pendidikan",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["pendidikan", "beasiswa", "program pendidikan", "jenjang pendidikan", "fase kehidupan"]
+        },
+        {
+          "id": "data_10i",
+          "title": "Tanggap Darurat",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["tanggap darurat", "bencana", "evakuasi", "hotline darurat", "darurat", "fase kehidupan"]
+        },
+        {
+          "id": "data_10j",
+          "title": "Sosial dan Hukum",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["sosial", "hukum", "bantuan hukum", "kesejahteraan", "perlindungan sosial", "fase kehidupan"]
+        },
+        {
+          "id": "data_10k",
+          "title": "Hari Tua",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["hari tua", "lansia", "lanjut usia", "program lansia", "fase kehidupan"]
+        },
+        {
+          "id": "data_10l",
+          "title": "Rekreasi",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["rekreasi", "wisata", "taman", "refreshing", "liburan", "fase kehidupan"]
+        },
+        {
+          "id": "data_10m",
+          "title": "Layanan Kependudukan",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["kependudukan", "KTP", "KK", "akta", "dukcapil", "fase kehidupan"]
+        },
+        {
+          "id": "data_10n",
+          "title": "Perizinan Usaha",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["perizinan usaha", "izin usaha", "OSS", "NIB", "fase kehidupan"]
+        },
+        {
+          "id": "data_10o",
+          "title": "Info Wisata",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["info wisata", "destinasi wisata", "pariwisata", "objek wisata", "fase kehidupan"]
+        },
+        {
+          "id": "data_10p",
+          "title": "Pajak Kendaraan Bermotor (PKB)",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["PKB", "pajak kendaraan", "pajak kendaraan bermotor", "STNK", "fase kehidupan"]
+        },
+        {
+          "id": "data_10q",
+          "title": "Pengajuan Sertifikasi Halal",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["sertifikasi halal", "halal", "pengajuan halal", "fase kehidupan"]
+        },
+        {
+          "id": "data_10r",
+          "title": "Bantuan Sosial",
+          "category": "Layanan Fase Kehidupan",
+          "type": "data_informasi",
+          "menu": "layanan-fase-kehidupan",
+          "link": "/mall-data-informasi?menu=layanan-fase-kehidupan",
+          "keywords": ["bantuan sosial", "bansos", "program sosial", "kemiskinan", "fase kehidupan"]
+        },
+        {
+          "id": "data_11",
+          "title": "LHKPN",
+          "category": "Transparansi & Kepatuhan",
+          "type": "data_informasi",
+          "menu": "lhkpn",
+          "link": "https://kab-nunukan.atrbpn.go.id/",
+          "keywords": ["LHKPN", "laporan harta kekayaan", "harta kekayaan pejabat", "pejabat negara", "ATR BPN", "BPN", "pertanahan", "kepatuhan", "transparansi pejabat", "laporan kekayaan", "kab nunukan atrbpn"]
+        }
+      ]
+    }
+  }
+}
