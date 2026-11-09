@@ -36,10 +36,6 @@ return [
     */
 
     'guards' => [
-        'announcement_admin' => [
-            'driver' => 'session',
-            'provider' => 'announcement_admins',
-        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -64,10 +60,6 @@ return [
     */
 
     'providers' => [
-        'announcement_admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\AnnouncementAdmin::class,
-        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,

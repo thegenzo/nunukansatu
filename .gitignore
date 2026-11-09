@@ -1,0 +1,25 @@
+# Ignore Composer dependencies
+/vendor/
+/composer.lock
+
+# Ignore environment files
+.env
+
+# Ignore log files
+*.log
+
+# Ignore IDE/editor directories
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+package-lock.json
+yarn.lock
+/node_modules/
+
+nunukansatu-home

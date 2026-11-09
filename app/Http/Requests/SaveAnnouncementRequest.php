@@ -11,7 +11,7 @@ class SaveAnnouncementRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return auth('announcement_admin')->check();
+        return (bool) auth('web')->user()?->is_admin;
     }
 
     protected function prepareForValidation(): void

@@ -10,7 +10,7 @@ class EnsureAnnouncementAdmin
 {
     public function handle(Request $request, Closure $next)
     {
-        $guard = Auth::guard('announcement_admin');
+        $guard = Auth::guard('web');
         if (! $guard->check()) {
             if ($request->expectsJson()) {
                 abort(401);
@@ -18,6 +18,8 @@ class EnsureAnnouncementAdmin
 
             return redirect()->guest(route('admin.login'));
         }
+
+        abort_unless($guard->user()->is_admin, 403);
 
         $sessionHash = $request->session()->get('announcement_admin_password_hash');
         $currentHash = $guard->user()->getAuthPassword();

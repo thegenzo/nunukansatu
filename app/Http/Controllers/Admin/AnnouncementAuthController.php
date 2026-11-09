@@ -13,7 +13,7 @@ class AnnouncementAuthController extends Controller
 {
     public function create()
     {
-        return Auth::guard('announcement_admin')->check()
+        return Auth::guard('web')->user()?->is_admin
             ? redirect()->route('admin.announcements.index')
             : response()->view('admin.announcements.login')->header('Cache-Control', 'no-store');
     }
@@ -25,28 +25,28 @@ class AnnouncementAuthController extends Controller
             'password' => ['required', 'string', 'max:1024'],
             'remember' => ['sometimes', 'boolean'],
         ]);
-        $credentials = ['email' => Str::lower($credentials['email']), 'password' => $credentials['password']];
+        $credentials = ['email' => Str::lower($credentials['email']), 'password' => $credentials['password'], 'is_admin' => true];
         $key = 'announcement-login:'.hash('sha256', $credentials['email'].'|'.$request->ip());
 
         if (RateLimiter::tooManyAttempts($key, 5)) {
             throw ValidationException::withMessages(['email' => 'Terlalu banyak percobaan. Coba lagi dalam '.RateLimiter::availableIn($key).' detik.']);
         }
 
-        if (! Auth::guard('announcement_admin')->attempt($credentials, $request->boolean('remember'))) {
+        if (! Auth::guard('web')->attempt($credentials, $request->boolean('remember'))) {
             RateLimiter::hit($key, 300);
             throw ValidationException::withMessages(['email' => 'Email atau kata sandi tidak sesuai.']);
         }
 
         RateLimiter::clear($key);
         $request->session()->regenerate();
-        $request->session()->put('announcement_admin_password_hash', Auth::guard('announcement_admin')->user()->getAuthPassword());
+        $request->session()->put('announcement_admin_password_hash', Auth::guard('web')->user()->getAuthPassword());
 
         return redirect()->route('admin.announcements.index');
     }
 
     public function destroy(Request $request)
     {
-        Auth::guard('announcement_admin')->logout();
+        Auth::guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

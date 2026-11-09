@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Http\Middleware\VerifyCsrfToken;
 use App\Models\Announcement;
-use App\Models\AnnouncementAdmin;
 use App\Models\User;
 use App\Services\AnnouncementQrCode;
 use Carbon\Carbon;
@@ -70,7 +69,7 @@ class AnnouncementManagementTest extends TestCase
                 'password' => 'admin-password-123',
             ])->assertStatus(419);
         }
-        $this->assertGuest('announcement_admin');
+        $this->assertGuest('web');
     }
 
     private function enableBrowserSessions(): void
@@ -133,7 +132,7 @@ class AnnouncementManagementTest extends TestCase
         Storage::fake('public');
         $this->artisan('migrate', ['--force' => true])->assertExitCode(0);
         Announcement::query()->delete();
-        $this->travelTo(now()->setDate(2026, 10, 28)->setTime(8, 0));
+        $this->travelTo(now());
     }
 
     public function test_guests_cannot_read_or_mutate_the_admin_dashboard(): void
@@ -172,15 +171,14 @@ class AnnouncementManagementTest extends TestCase
         ]);
         $this->actingAs($user, 'web');
 
-        $this->get(route('admin.announcements.index'))->assertRedirect(route('admin.login'));
-        $this->post(route('admin.announcements.store'), $this->payload())
-            ->assertRedirect(route('admin.login'));
+        $this->get(route('admin.announcements.index'))->assertForbidden();
+        $this->post(route('admin.announcements.store'), $this->payload())->assertForbidden();
         $this->assertDatabaseCount('announcements', 0);
     }
 
     public function test_an_admin_can_create_edit_replace_and_delete_an_uploaded_announcement(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
         $this->get(route('admin.announcements.index'))->assertOk();
         $this->get(route('admin.announcements.create'))->assertOk();
 
@@ -231,9 +229,55 @@ class AnnouncementManagementTest extends TestCase
         Storage::disk('local')->assertMissing($announcement->pdf_path);
     }
 
+    public function test_regular_users_cannot_log_in_through_the_admin_login_form(): void
+    {
+        $user = User::factory()->create(['email' => 'public@example.test', 'password' => 'public-password-123']);
+
+        $this->post(route('admin.login.store'), [
+            'email' => $user->email,
+            'password' => 'public-password-123',
+        ])->assertSessionHasErrors('email');
+
+        $this->assertGuest('web');
+        $this->assertFalse($user->is_admin);
+    }
+
+    public function test_a_revoked_admin_cannot_access_or_update_announcements(): void
+    {
+        $admin = $this->admin();
+        $this->post(route('admin.login.store'), [
+            'email' => $admin->email, 'password' => 'admin-password-123',
+        ])->assertSessionHasNoErrors();
+        $this->get(route('admin.announcements.index'))->assertOk();
+        $admin->is_admin = false;
+        $admin->save();
+        Auth::forgetGuards();
+
+        $this->get(route('admin.announcements.index'))->assertForbidden();
+        $this->post(route('admin.announcements.store'), $this->payload())->assertForbidden();
+        $this->assertDatabaseCount('announcements', 0);
+    }
+
+    public function test_admin_permission_cannot_be_granted_through_mass_assignment(): void
+    {
+        $user = User::create([
+            'name' => 'Pengguna publik',
+            'email' => 'public@example.test',
+            'password' => 'public-password-123',
+            'verified' => false,
+            'is_admin' => true,
+        ]);
+
+        $this->assertFalse($user->fresh()->is_admin);
+        $this->assertArrayNotHasKey('announcement_admin', config('auth.guards'));
+        $this->assertSame('users', config('auth.guards.web.provider'));
+        $this->assertSame(['users'], array_keys(config('auth.providers')));
+        $this->assertFalse(\Illuminate\Support\Facades\Schema::hasTable('announcement_admins'));
+    }
+
     public function test_replacing_or_deleting_an_imported_pdf_preserves_the_original_public_file(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
         Storage::disk('public')->put('pengumuman-lama.pdf', $this->pdfContent());
         $imported = $this->announcement([
             'pdf_disk' => 'public',
@@ -255,7 +299,7 @@ class AnnouncementManagementTest extends TestCase
 
     public function test_deleting_an_announcement_cannot_delete_an_unmanaged_local_file(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
         $announcement = $this->announcement(['pdf_path' => 'other-documents/important.pdf']);
 
         $this->delete(route('admin.announcements.destroy', $announcement))->assertRedirect();
@@ -331,7 +375,7 @@ class AnnouncementManagementTest extends TestCase
 
     public function test_upload_validation_rejects_missing_title_non_pdf_and_oversized_files(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
 
         $this->post(route('admin.announcements.store'), $this->payload([
             'title' => '',
@@ -352,7 +396,7 @@ class AnnouncementManagementTest extends TestCase
 
     public function test_a_schedule_must_end_after_it_starts(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
 
         $this->post(route('admin.announcements.store'), $this->payload([
             'pdf' => $this->pdfUpload(),
@@ -365,7 +409,7 @@ class AnnouncementManagementTest extends TestCase
 
     public function test_schedule_dates_entered_in_wita_are_stored_in_the_application_timezone(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
 
         $this->post(route('admin.announcements.store'), $this->payload([
             'pdf' => $this->pdfUpload(),
@@ -390,7 +434,7 @@ class AnnouncementManagementTest extends TestCase
     public function test_downloaded_qr_contains_the_stable_public_preview_link_on_the_configured_domain(): void
     {
         config(['app.url' => 'https://nunukankab.go.id']);
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
         $announcement = $this->announcement();
         $expectedUrl = 'https://nunukankab.go.id/pengumuman/'.$announcement->public_id;
 
@@ -407,7 +451,7 @@ class AnnouncementManagementTest extends TestCase
 
     public function test_an_admin_can_publish_an_external_pdf_url_and_choose_whether_to_show_qr(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
         $url = 'https://assets.example.test/hasil-seleksi.pdf';
 
         $this->post(route('admin.announcements.store'), $this->payload([
@@ -433,7 +477,7 @@ class AnnouncementManagementTest extends TestCase
 
     public function test_external_document_links_reject_unsafe_url_schemes(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
 
         foreach (['javascript:alert(1)', 'file:///etc/passwd', 'ftp://example.test/file.pdf'] as $url) {
             $this->post(route('admin.announcements.store'), $this->payload([
@@ -447,7 +491,7 @@ class AnnouncementManagementTest extends TestCase
 
     public function test_switching_between_upload_and_external_link_replaces_the_document_source(): void
     {
-        $this->actingAs($this->admin(), 'announcement_admin');
+        $this->actingAs($this->admin(), 'web');
         $announcement = $this->announcement();
         $oldPath = $announcement->pdf_path;
 
@@ -472,7 +516,7 @@ class AnnouncementManagementTest extends TestCase
         Storage::disk('local')->assertExists($announcement->pdf_path);
     }
 
-    public function test_admin_login_and_logout_use_the_separate_admin_guard(): void
+    public function test_admin_login_and_logout_authenticate_a_user_from_the_users_provider(): void
     {
         $admin = $this->admin();
         $this->assertTrue(Hash::check('admin-password-123', $admin->password));
@@ -485,10 +529,10 @@ class AnnouncementManagementTest extends TestCase
             'remember' => '1',
         ])->assertSessionHasNoErrors()->assertRedirect(route('admin.announcements.index'));
 
-        $this->assertAuthenticatedAs($admin, 'announcement_admin');
-        $this->assertGuest('web');
+        $this->assertAuthenticatedAs($admin, 'web');
+        $this->assertSame('users', config('auth.guards.web.provider'));
         $this->post(route('admin.logout'))->assertRedirect(route('admin.login'));
-        $this->assertGuest('announcement_admin');
+        $this->assertGuest('web');
         $this->get(route('admin.announcements.index'))->assertRedirect(route('admin.login'));
     }
 
@@ -501,7 +545,7 @@ class AnnouncementManagementTest extends TestCase
             'password' => 'wrong-password',
         ])->assertRedirect(route('admin.login'))->assertSessionHasErrors('email');
 
-        $this->assertGuest('announcement_admin');
+        $this->assertGuest('web');
     }
 
     public function test_resetting_an_admin_password_revokes_the_existing_dashboard_session(): void
@@ -514,7 +558,7 @@ class AnnouncementManagementTest extends TestCase
         $this->get(route('admin.announcements.index'))->assertOk();
         $this->assertSame($admin->password, session('announcement_admin_password_hash'));
 
-        AnnouncementAdmin::query()->whereKey($admin->id)->update([
+        User::query()->whereKey($admin->id)->update([
             'password' => Hash::make('replacement-password-456'),
         ]);
         // A new HTTP request must load the updated account rather than a cached guard user.
@@ -522,7 +566,7 @@ class AnnouncementManagementTest extends TestCase
 
         $this->get(route('admin.announcements.index'))
             ->assertRedirect(route('admin.login'))->assertSessionHasErrors('email');
-        $this->assertGuest('announcement_admin');
+        $this->assertGuest('web');
         $this->post(route('admin.announcements.store'), $this->payload([
             'pdf' => $this->pdfUpload(),
         ]))->assertRedirect(route('admin.login'));
@@ -543,7 +587,7 @@ class AnnouncementManagementTest extends TestCase
             ->expectsQuestion('Ulangi kata sandi baru', 'command-password-123')
             ->assertExitCode(0);
 
-        $admin = AnnouncementAdmin::sole();
+        $admin = User::sole();
         $originalPassword = $admin->password;
         $originalRememberToken = $admin->remember_token;
         $this->assertSame('admin@example.test', $admin->email);
@@ -554,7 +598,7 @@ class AnnouncementManagementTest extends TestCase
             ->expectsQuestion('Kata sandi baru (minimal 12 karakter)', 'replacement-password-456')
             ->expectsQuestion('Ulangi kata sandi baru', 'different-password-789')
             ->assertExitCode(1);
-        $this->assertDatabaseCount('announcement_admins', 1);
+        $this->assertDatabaseCount('users', 1);
         $this->assertSame($originalPassword, $admin->fresh()->password);
         $this->assertSame($originalRememberToken, $admin->fresh()->remember_token);
 
@@ -562,7 +606,7 @@ class AnnouncementManagementTest extends TestCase
             ->expectsQuestion('Kata sandi baru (minimal 12 karakter)', 'replacement-password-456')
             ->expectsQuestion('Ulangi kata sandi baru', 'replacement-password-456')
             ->assertExitCode(0);
-        $this->assertDatabaseCount('announcement_admins', 1);
+        $this->assertDatabaseCount('users', 1);
         $this->assertTrue(Hash::check('replacement-password-456', $admin->fresh()->password));
         $this->assertNotSame($originalRememberToken, $admin->fresh()->remember_token);
     }
@@ -582,12 +626,14 @@ class AnnouncementManagementTest extends TestCase
             'email' => $admin->email,
             'password' => 'admin-password-123',
         ])->assertSessionHasErrors('email');
-        $this->assertGuest('announcement_admin');
+        $this->assertGuest('web');
     }
 
-    private function admin(): AnnouncementAdmin
+    private function admin(): User
     {
-        return AnnouncementAdmin::create([
+        return User::forceCreate([
+            'is_admin' => true,
+            'verified' => true,
             'name' => 'Admin Pengumuman',
             'email' => 'admin@example.test',
             'password' => 'admin-password-123',

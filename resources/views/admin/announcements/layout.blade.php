@@ -9,10 +9,10 @@
     <link rel="icon" href="{{ asset('web-assets/assets/img/nunukan-icon.png') }}">
     <link rel="stylesheet" href="{{ asset('web-assets/announcement-admin.css') }}">
 </head>
-<body class="announcement-admin {{ auth('announcement_admin')->check() ? 'admin-authenticated' : 'admin-guest' }}">
+<body class="announcement-admin {{ auth('web')->user()?->is_admin ? 'admin-authenticated' : 'admin-guest' }}">
     <a class="skip-link" href="#main-content">Lewati ke konten</a>
 
-    @auth('announcement_admin')
+    @if(auth('web')->user()?->is_admin)
         <aside class="admin-sidebar" aria-label="Navigasi admin">
             <a href="{{ route('admin.announcements.index') }}" class="admin-brand">
                 <img src="{{ asset('web-assets/assets/img/nunukan-icon.png') }}" alt="" width="39" height="47">
@@ -36,7 +36,7 @@
             <header class="admin-topbar">
                 <div class="topbar-context"><span class="status-dot"></span> Panel administrasi <span class="topbar-divider">/</span> Pengumuman</div>
                 <div class="admin-account">
-                    <span class="account-name">{{ auth('announcement_admin')->user()->name ?: 'Administrator' }}</span>
+                    <span class="account-name">{{ auth('web')->user()->name ?: 'Administrator' }}</span>
                     <form method="POST" action="{{ route('admin.logout') }}">
                         @csrf
                         <button type="submit" class="button button-quiet button-small">Keluar</button>
@@ -56,7 +56,7 @@
         </div>
     @else
         <main id="main-content" class="login-main" tabindex="-1">@yield('content')</main>
-    @endauth
+    @endif
 
     <script>
         document.querySelectorAll('[data-delete-announcement]').forEach(function (form) {

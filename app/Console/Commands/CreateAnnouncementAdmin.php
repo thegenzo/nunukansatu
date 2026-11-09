@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\AnnouncementAdmin;
+use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -33,8 +33,12 @@ class CreateAnnouncementAdmin extends Command
             return self::FAILURE;
         }
 
-        $admin = AnnouncementAdmin::firstOrNew(['email' => $email]);
-        $admin->fill(['name' => $name, 'password' => $password]);
+        $admin = User::whereRaw('LOWER(TRIM(email)) = ?', [$email])->first() ?? new User;
+        $admin->fill(['name' => $name, 'email' => $email, 'password' => $password]);
+        $admin->is_admin = true;
+        if (! $admin->exists) {
+            $admin->verified = true;
+        }
         $admin->remember_token = Str::random(60);
         $admin->save();
         $this->info('Akun admin tersimpan. Masuk melalui '.url('/admin/login'));

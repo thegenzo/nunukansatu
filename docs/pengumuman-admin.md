@@ -5,11 +5,13 @@ Pengelolaan berikutnya dilakukan dari dashboard tanpa mengedit Blade.
 
 ## Persiapan satu kali di server
 
-Gunakan database aplikasi yang sudah dikonfigurasi dalam `.env`.
-Jalankan hanya migrasi fitur ini jika database sebelumnya dikelola secara manual:
+Gunakan database aplikasi yang sudah dikonfigurasi dalam `.env`. Pada instalasi
+Laravel baru, jalankan migrasi aplikasi seperti biasa (`php artisan migrate --force`).
+Jika database lama dikelola secara manual dan tabel `users` sudah tersedia,
+jalankan hanya migrasi fitur ini:
 
 ```sh
-php artisan migrate --path=database/migrations/2026_10_28_000001_create_announcement_admins_table.php --path=database/migrations/2026_10_28_000002_create_announcements_table.php --force
+php artisan migrate --path=database/migrations/2026_10_28_000001_create_announcement_admins_table.php --path=database/migrations/2026_10_28_000002_create_announcements_table.php --path=database/migrations/2026_11_09_000001_move_announcement_admins_to_users.php --force
 php artisan announcements:admin
 php artisan config:clear
 php artisan route:clear
@@ -19,8 +21,24 @@ php artisan view:clear
 Perintah `announcements:admin` meminta nama, email, dan kata sandi minimal 12 karakter.
 Kata sandi dimasukkan secara tersembunyi dan disimpan sebagai hash. Tidak ada akun
 atau kata sandi bawaan. Jalankan lagi dengan email yang sama untuk mengganti kata
-sandi; sesi admin dengan kata sandi lama akan diminta masuk kembali. Akun ini
-terpisah dari akun publik dan SSO pegawai.
+sandi; sesi admin dengan kata sandi lama akan diminta masuk kembali. Perintah ini
+menyimpan atau memperbarui akun di tabel `users` dan memberikan hak `is_admin`.
+Jika email sudah dimiliki pengguna, akun tersebut yang diperbarui; NIK, nomor
+telepon, dan status verifikasi publiknya dipertahankan.
+
+Semua autentikasi dashboard memakai model `User`, provider `users`, dan guard
+`web`. Pengguna biasa tetap tidak dapat masuk ke dashboard: hanya `is_admin=true`
+yang diberi akses. Pendaftaran publik tidak dapat menetapkan hak admin. NIK dan
+nomor telepon menjadi nullable untuk akun admin yang dibuat melalui email;
+nomor telepon yang terisi tetap unik. Alur SSO pegawai yang sudah ada tetap berlaku.
+
+Migrasi tanggal 9 November 2026 memindahkan seluruh akun `announcement_admins`
+ke `users` beserta hash kata sandinya, memverifikasi hasil pemindahan, kemudian
+menghapus tabel lama. Akun dengan email dan hash identik digabung tanpa mengubah
+profil publiknya. Jika email sama tetapi kredensial berbeda, migrasi berhenti
+agar tidak menimpa akun; konflik harus diselesaikan terlebih dahulu. Setelah
+pembaruan, admin masuk kembali dengan email dan kata sandi sebelumnya. Rollback
+memulihkan tabel lama dari pengguna admin dan tetap mempertahankan data `users`.
 
 Pastikan `APP_URL=https://nunukankab.go.id` pada server produksi. QR memakai alamat
 ini agar tautan tetap menuju domain resmi meskipun dibuat dari alamat lain.
@@ -79,4 +97,5 @@ php artisan test
 Tes menggunakan SQLite dalam memori dan disk unggahan palsu. Database dan dokumen
 aplikasi tidak dipakai sebagai data tes. Cakupan meliputi autentikasi admin,
 CRUD, validasi PDF/URL, pembersihan file, jadwal WITA, preview publik, QR, serta
-pencabutan sesi setelah reset kata sandi.
+pencabutan sesi setelah reset kata sandi, pembatasan hak pengguna publik, serta
+pemindahan akun lama tanpa kehilangan hash kata sandi dan relasi pengguna.
